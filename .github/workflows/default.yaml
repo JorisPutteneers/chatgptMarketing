@@ -1,12 +1,21 @@
-name: default
-on:
-  push:
-    branches:
-      - main
+name: Python Test
+
+on: [push]
+
 jobs:
-  publish:
+  test:
+    name: Test
     runs-on: ubuntu-latest
+
     steps:
-      - name: testing
-        run: |
-          python testing.py
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  # Replace 'x' with the desired Python version (e.g., '3.6', '3.7', '3.8', '3.9')
+
+    - name: Execute test
+      run: python test_file.py  # Replace 'test_file.py' with the name of your test Python file
+
