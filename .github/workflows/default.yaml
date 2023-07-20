@@ -1,0 +1,12 @@
+name: default
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing
+        run: |
+          python testing.py
